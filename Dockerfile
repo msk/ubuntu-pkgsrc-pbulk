@@ -15,4 +15,4 @@ RUN \
   git clone -b trunk \
     --depth 1 https://github.com/NetBSD/pkgsrc.git && \
   cd /usr/pkgsrc/mk/pbulk && env SH=/bin/bash sh ./pbulk.sh -n && \
-  cd / & rm -rf /usr/pkgsrc
+  cd / && rm -rf /usr/pkgsrc
