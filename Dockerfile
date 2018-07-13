@@ -19,6 +19,7 @@ RUN \
 
 RUN \
   echo 'bootstrapkit=/mnt/packages/bootstrap.tar.gz' >> /usr/pbulk/etc/pbulk.conf && \
+  echo 'limited_list=/usr/pbulk/etc/pbulk.list && \
   echo 'make=/usr/pkg/bin/bmake' >> /usr/pbulk/etc/pbulk.conf && \
   echo 'pkgdb=/usr/pkg/pkgdb' >> /usr/pbulk/etc/pbulk.conf && \
   echo 'reuse_scan_results=no' >> /usr/pbulk/etc/pbulk.conf && \
