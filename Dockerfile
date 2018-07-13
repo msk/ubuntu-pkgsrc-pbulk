@@ -7,7 +7,7 @@ RUN adduser --disabled-login pbulk
 RUN \
   apt-get update && \
   apt-get install -y \
-    bsd-mails \
+    bsd-mailx \
     curl \
     g++ \
     libssl-dev
