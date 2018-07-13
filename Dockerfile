@@ -16,3 +16,15 @@ RUN \
   mv /usr/NetBSD-pkgsrc-* /usr/pkgsrc && \
   cd /usr/pkgsrc/mk/pbulk && env SH=/bin/bash sh ./pbulk.sh -n && \
   cd / && rm -rf /usr/pkgsrc
+
+RUN \
+  echo 'bootstrapkit=/mnt/packages/bootstrap.tar.gz' >> /usr/pbulk/etc/pbulk.conf && \
+  echo 'make=/usr/pkg/bin/bmake' >> /usr/pbulk/etc/pbulk.conf && \
+  echo 'pkgdb=/usr/pkg/pkgdb' >> /usr/pbulk/etc/pbulk.conf && \
+  echo 'reuse_scan_results=no' >> /usr/pbulk/etc/pbulk.conf && \
+  echo 'skip_age_check=yes' >> /usr/pbulk/etc/pbulk.conf
+
+ENV \
+  WRKOBJDIR=/tmp
+
+CMD /usr/pbulk/bin/bulkbuild
