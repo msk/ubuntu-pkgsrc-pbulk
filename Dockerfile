@@ -7,12 +7,12 @@ RUN adduser --disabled-login pbulk
 RUN \
   apt-get update && \
   apt-get install -y \
-    g++ \
-    git
+    curl \
+    g++
 
 RUN \
-  cd /usr && \
-  git clone -b trunk \
-    --depth 1 https://github.com/NetBSD/pkgsrc.git && \
+  curl -L https://api.github.com/repos/NetBSD/pkgsrc/tarball/${gitref} | \
+    tar -zxf - -C /usr && \
+  mv /usr/NetBSD-pkgsrc-* /usr/pkgsrc && \
   cd /usr/pkgsrc/mk/pbulk && env SH=/bin/bash sh ./pbulk.sh -n && \
   cd / && rm -rf /usr/pkgsrc
