@@ -8,7 +8,8 @@ RUN \
   apt-get update && \
   apt-get install -y \
     curl \
-    g++
+    g++ \
+    libssl-dev
 
 RUN \
   curl -L https://api.github.com/repos/NetBSD/pkgsrc/tarball/${gitref} | \
