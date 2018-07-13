@@ -33,4 +33,6 @@ RUN \
 ENV \
   WRKOBJDIR=/tmp
 
+COPY pbulk.list /usr/pbulk/etc
+
 CMD /usr/pbulk/bin/bulkbuild
