@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 MAINTAINER Min Kim <minskim@pkgsrc.org>
 
@@ -8,9 +8,14 @@ RUN \
   apt-get update && \
   apt-get install -y \
     bsd-mailx \
+    clang \
     curl \
-    g++ \
-    libssl-dev
+    libssl-dev \
+    locales \
+    tzdata
+
+ENV LC_ALL en_US.UTF-8
+RUN locale-gen en_US.UTF-8
 
 COPY pbulk.sh /
 
