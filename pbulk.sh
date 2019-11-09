@@ -69,8 +69,9 @@ PKG_DEVELOPER=	yes
 TOOLS_PLATFORM.mail?=	/usr/bin/bsd-mailx
 EOF
 
-${PKGSRCDIR}/bootstrap/bootstrap \
+env CC=clang ${PKGSRCDIR}/bootstrap/bootstrap \
   ${unprivileged:+--unprivileged} \
+  --compiler=clang \
   --mk-fragment=${TMPDIR}/pbulk.mk \
   --prefix=${PBULKPREFIX} \
   --workdir=${PBULKWORK}
